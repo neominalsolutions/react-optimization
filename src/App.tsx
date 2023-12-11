@@ -7,6 +7,7 @@ import useEffectSample from './demo/useEffect/useEffectSample';
 import ReactMemoSample from './demo/reactMemo/ReactMemoSample';
 import UseRefSample from './demo/useRef/UseRefSample';
 import UseMemoSample from './demo/useMemo/UseMemoSample';
+import UseCallbackSample from './demo/useCallback/UseCallbackSample';
 
 function App() {
 	// 2. yöntem useRoute hook ile routing işlemlerini yönetimi
@@ -39,9 +40,13 @@ function App() {
 					Component: UseRefSample,
 				},
 				{
-					path:'useMemo',
-					Component:UseMemoSample
-				}
+					path: 'useMemo',
+					Component: UseMemoSample,
+				},
+				{
+					path: 'useCallback',
+					Component: UseCallbackSample,
+				},
 			],
 		},
 	];
