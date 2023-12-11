@@ -1,26 +1,37 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { RouteObject, useRoutes } from 'react-router-dom';
+import UseStateSample from './demo/useState/UseStateSample';
+import useEffectSample from './demo/useEffect/useEffectSample';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	// 2. yöntem useRoute hook ile routing işlemlerini yönetimi
+	const routes: RouteObject[] = [
+		{
+			path: '/',
+			element: <>Ana sayfa</>,
+		},
+		{
+			path: '/about',
+			element: <>Hakkımızda</>,
+		},
+		{
+			path: 'demo', // /demo/useState // nested route yapısı
+			children: [
+				{
+					path: 'useState',
+					Component: UseStateSample,
+				},
+				{
+					path: 'useEffect',
+					Component: useEffectSample,
+				},
+			],
+		},
+	];
+
+	return useRoutes(routes);
 }
 
 export default App;
